@@ -1,0 +1,20 @@
+title:             Geoff's Blog
+email:             your-email@example.com
+description:       Sensless babbling of a developer
+author:            Geoffrey Ballenden
+baseurl:           ""
+url:               "https://za1.github.io"
+
+# Social Profiles
+twitter_username:  GeoffB
+github_username:   ZA1
+facebook_username: StartBootstrap
+
+# Build settings
+remote_theme:      BlackrockDigital/startbootstrap-clean-blog-jekyll
+markdown:          kramdown
+paginate:          5
+paginate_path:     "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
