@@ -8,14 +8,14 @@ Suppose we have come information that we want to share with a friend, Bob in thi
 
 The letters, RSA, come from the first letters of the authors (Ron Rivest, Adi Shamir, and Leonard Adleman) of the paper that described the algorithm in 1973. The brilliant part is that they figured out, after a night of drinking no less the story goes, that because there is no better way to do prime factoring than trying each number in turn, it can be used as a "one way trapdoor". In maths a trapdoor is a function that is easy to calculate one way, but very difficult to reverse. For example if I told you that 901 is the factor of 2 prime numbers, could you come up with those two numbers? But if I told you that one of the numbers is 17 you can easily calculate that $$ 901 / 17 = 53 $$ . RSA uses this concept but with very big prime numbers.
 
-{.img-thumbnail .float-right .ml-3 .text-center style="width: 350px"}
-:::
-```mermaid
-graph LR;
-    Us[Me<br/>Private Key]-->|Public Key|Bob[Bob<br/>Private Key]
-    Bob-->|Public Key|Us
-```
-:::
+<div class="img-thumbnail float-right ml-3 text-center" style="width: 350px">
+    <div class="mermaid">
+    graph LR;
+        Us[Me<br/>Private Key]-->|Public Key|Bob[Bob<br/>Private Key]
+        Bob-->|Public Key|Us
+    </div>
+</div>
+
 First of all a high level explication on how RSA works:
 1. We generated a public key and a private key.
 2. We send the _public_ key to Bob.
