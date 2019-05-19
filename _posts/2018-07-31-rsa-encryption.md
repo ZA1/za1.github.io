@@ -2,7 +2,7 @@
 title: RSA Encryption
 image: rsa-encryption.jpg
 subTitle: In this post we dig into how RSA Encryption works by building it up from first principals.
-IncludeScript: <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js" async></script>
+includeScript: <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js" async></script>
 ---
 Suppose we have come information that we want to share with a friend, Bob in this case, on the internet. Now as we all know, the internet is full of unsavory characters, lets call them Eve, so we cant trust that what we send to Bob will not be intercepted by the evil doer's. This is a common scenario where we use [Asymmetric Encryption Algorithms](terms#asymetric), and the most well known one is RSA.
 
