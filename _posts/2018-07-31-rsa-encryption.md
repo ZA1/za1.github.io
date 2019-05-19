@@ -49,6 +49,7 @@ Calculating the public key is done as follows:
 | $$ z = (p - 1)(q - 1) $$                                 | $$ z = (17 - 1)(53 - 1) = 832 $$                                                                                                                                                     |
 | Select $$ e, 1 < e < z $$  such that: $$ gcd(e, z) = 1 $$        | Pick a prime number $$ e $$  that is greater then 1 and less than 832 and where $$ z $$  is not divisible by $$ e $$ . In this example lets choose 7. $$ e=7 $$                                     |
 | Select $$ d, 1 < d < z $$  Such that: $$ ed \equiv 1 \pmod z $$  | Find a number $$ d $$  that when multiplied by 7 and then devided by 832, the remander is 1. $$ (7)(d)\mod 832 = 1 $$ Let's choose 119. $$ (7)(119) = 833 $$ $$ 833 \mod 7 = 1 $$ $$ d = 119 $$ |
+{: .table .table-striped }
 
 The public key is the combination of $$ n = 17 $$  and $$ e = 7 $$  and the Private is the combination of $$ n = 17 $$  and $$ d = 119 $$ 
 
@@ -58,6 +59,7 @@ Bob sends us his public key and we use that to encrypt our message $$ M $$ , the
 | Algorithm          | Example  |
 |--------------------|----------|
 | $$C = M^e \mod n$$ | We calculate 42 to to the power of 7 and the remainder of that number divided by 901 is the encrypted message. $$C = 42^7 \mod 901$$ $$C = 134$$ |
+{: .table .table-striped }
 
 ## Decrypting Data
 We send the encrypted message $$ C $$  to Bob. He uses his private key to decrypt the message.
@@ -65,6 +67,7 @@ We send the encrypted message $$ C $$  to Bob. He uses his private key to decryp
 | Algorithm           | Example  |
 |---------------------|----------|
 | $$M' = C^d \mod n$$ | Bob calculates 134 to the power of 119 and the remainder of that number divided by 901 is the message. $$M' = 134^{119} \mod 901$$ $$M' = 42$$ |
+{: .table .table-striped }
 
 As you can see Bob has managed to decrypt the our message.
 
