@@ -12,7 +12,7 @@ layout: default
                     <h1>{{ page.title }}</h1>
                     <h2 class="subheading">{{ page.subTitle }}</h2>
                     <span class="meta">
-                        Published {{ page.date }}
+                        Published {{ page.date | date: "%F" }}
                     </span>
                 </div>
             </div>

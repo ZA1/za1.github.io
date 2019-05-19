@@ -28,14 +28,14 @@ title: "Home"
                         {{ post.title }}
                     </h2>
                     <h3 class="post-subtitle">
-                        {{ post.excerpt }}
+                        {{ post.subTitle }}
                     </h3>
                 </a>
                 <p class="post-meta">
-                    Published {{ post.date }}
+                    Published {{ post.date | date: "%F" }}
                 </p>
             </div>
-            <hr>
+            <hr />
             {% endfor %}
             <!-- Pager -->
             <!-- <div class="clearfix">
