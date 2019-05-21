@@ -36,10 +36,12 @@ This is a nice concept, but by it's self a blockchain is not very useful. As we 
 
 ### Show me the code
 
-``` cs
+Here is a minimal implementation of a blockchain is C#.
+
+``` c#
 public class Block
 {
-  public static Block GenisisBlock { get; } = new Block(DateTime.Now, new byte[] { });
+  public static Block GenesisBlock { get; } = new Block(DateTime.Now, new byte[] { });
 
   public DateTime Date { get; }
   public Block PreviousBlock { get; }
@@ -73,7 +75,18 @@ public class Block
 
   public bool IsValid()
   {
-    return GenisisBlock == this || PreviousBlock.IsValid() && Hash.SequenceEqual(ComputeHash());
+    return GenesisBlock == this || PreviousBlock.IsValid() && Hash.SequenceEqual(ComputeHash());
   }
 }
 ```
+
+You would us it like this:
+
+``` c#
+var block = new Block(DateTime.Now, Block.GenesisBlock, new byte[] { 6, 7, 8 });
+var nextBlock = new Block(DateTime.Now, block, new byte[] { 9, 10, 11 });
+var isValidChain = nextBlock.IsValid();
+Console.WriteLine(isValidChain);
+```
+
+So we can create blocks and ensure the integrity of the entire chain quite simply.
