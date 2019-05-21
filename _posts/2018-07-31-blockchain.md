@@ -30,7 +30,7 @@ By itself a block chain is a very simple concept. So first of all, what is a blo
 
 We will dig into hashes in a later post, but for now think of hash as a calculation that takes any set of data and produces a unique number that represents that data. If you give it the same data it produces the same number, but if you change even a single bit of the input you get a different answer. To check if a block has been changes is as simple as calculating the has for that block and checking that it matches the header.
 
-The important part is that it is only ever possible to add a new block to the end of the chain and never update any of the blocks. This [immutable]({% post_url 2010-07-21-name-of-post %}#immutable) nature of the block chain is what ensures that anyone can verify that the data contained in the chain has not been tampered with.
+The important part is that it is only ever possible to add a new block to the end of the chain and never update any of the blocks. This [immutable]({% post_url 2018-07-30-glossary %}#immutable) nature of the block chain is what ensures that anyone can verify that the data contained in the chain has not been tampered with.
 
 This is a nice concept, but by it's self a blockchain is not very useful. As we will see, this is just one powerful piece of the puzzle in creating a _decentralized_ system.
 
