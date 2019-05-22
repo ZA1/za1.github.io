@@ -4,6 +4,8 @@ image: blockchain.jpg
 subTitle: In this post I look at what a blockchain actually is and dig much deeper into the tech.
 ---
 
+We have spoken about [blockchain in the abstract]({% post_url 2018-07-31-blockchain-primer %}), now let's get into the implementation.
+
 By itself a block chain is a very simple concept. So first of all, what is a blockchain? A block chain is a list of records called "blocks" that are linked together sequentially. A block consists of a header and some data. The important part is that to add a valid block you add the hash of the previous block to the data of the current block and add the hash to the header. This is why it is called a chain, because each block references the previous block.
 
 <svg viewBox="0 0 620 140">
