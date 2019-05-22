@@ -17,29 +17,33 @@ The letters, RSA, come from the first letters of the authors (Ron Rivest, Adi Sh
 </div>
 
 First of all a high level explication on how RSA works:
+
 1. We generated a public key and a private key.
 2. We send the _public_ key to Bob.
-2. Bob generates his own public and private keys.
-2. Bob sends us his _public_ key.
-2. Now that we have Bob's public key we can use that to encrypt any messages we want to send to Bob.
-2. Bob can use our public key to send messages to us.
+3. Bob generates his own public and private keys.
+4. Bob sends us his _public_ key.
+5. Now that we have Bob's public key we can use that to encrypt any messages we want to send to Bob.
+6. Bob can use our public key to send messages to us.
 
 Some things to note:
-* The _private_ key is never sent over the untrusted network.
+
+* The _private_ key is never sent over the un-trusted network.
 * Once Bob encrypts the message with our public key, there is no way for him to decrypt it. This means that Eve can't decrypt it ether.
 
-Alright, lets break it down a bit further and just focus on one leg of the conversation because the otherside is the same in reverse.
-1. Suppose the message that we want to send to Bob is the number 42. $$ (P = 42) $$ 
+Alright, lets break it down a bit further and just focus on one leg of the conversation because the otherwise is the same in reverse.
+
+1. Suppose the message that we want to send to Bob is the number 42. $$ (P = 42) $$
 2. Bob generates his public key $$ (n = 17, e = 7) $$ .
-2. Bob also generates his private key $$ (j = 53) $$ .
-2. Bob sends us his public key $$ (n = 901, e = 7) $$ .
-2. We use the public key to encrypt the message $$ (P = 42) $$  into the an encrypted message $$ (E = 30) $$ .
-2. We send the encrypted message $$ (E = 30) $$  to Bob.
-2. Bob uses his private key $$ (j = 53) $$  to convert the message back to 42.
+3. Bob also generates his private key $$ (j = 53) $$ .
+4. Bob sends us his public key $$ (n = 901, e = 7) $$ .
+5. We use the public key to encrypt the message $$ (P = 42) $$  into the an encrypted message $$ (E = 30) $$ .
+6. We send the encrypted message $$ (E = 30) $$  to Bob.
+7. Bob uses his private key $$ (j = 53) $$  to convert the message back to 42.
 
 Lets work through the maths of the example and show how the mystery $$ e $$  was calculated.
 
 ## Generating Public and Private keys
+
 Calculating the public key is done as follows:
 
 | Algorithm                                                | Example                                                                                                                                                                            |
@@ -48,12 +52,13 @@ Calculating the public key is done as follows:
 | $$ n = pq $$                                             | $$ n = 17 * 53 = 901 $$                                                                                                                                                              |
 | $$ z = (p - 1)(q - 1) $$                                 | $$ z = (17 - 1)(53 - 1) = 832 $$                                                                                                                                                     |
 | Select $$ e, 1 < e < z $$  such that: $$ gcd(e, z) = 1 $$        | Pick a co-prime number $$ e $$  that is greater then 1 and less than 832 and where $$ z $$  is not divisible by $$ e $$ . In this example lets choose 7. $$ e=7 $$                                     |
-| Select $$ d, 1 < d < z $$  Such that: $$ ed \equiv 1 \pmod z $$  | Find a number $$ d $$  that when multiplied by 7 and then devided by 832, the remander is 1. $$ (7)(d)\mod 832 = 1 $$ Let's choose 119. $$ (7)(119) = 833 $$ $$ 833 \mod 7 = 1 $$ $$ d = 119 $$ |
+| Select $$ d, 1 < d < z $$  Such that: $$ ed \equiv 1 \pmod z $$  | Find a number $$ d $$  that when multiplied by 7 and then divided by 832, the remainder is 1. $$ (7)(d)\mod 832 = 1 $$ Let's choose 119. $$ (7)(119) = 833 $$ $$ 833 \mod 7 = 1 $$ $$ d = 119 $$ |
 {: .table .table-striped }
 
 The public key is the combination of $$ n = 901 $$  and $$ e = 7 $$  and the Private is the combination of $$ n = 901 $$  and $$ d = 119 $$
 
 ## Encrypting Data
+
 Bob sends us his public key and we use that to encrypt our message $$ M $$ , the number 42, to create the encrypted message $$ C $$ .
 
 | Algorithm          | Example  |
@@ -62,6 +67,7 @@ Bob sends us his public key and we use that to encrypt our message $$ M $$ , the
 {: .table .table-striped }
 
 ## Decrypting Data
+
 We send the encrypted message $$ C $$  to Bob. He uses his private key to decrypt the message.
 
 | Algorithm           | Example  |
